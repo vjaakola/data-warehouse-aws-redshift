@@ -9,3 +9,10 @@ Key components: ETL pipeline, AWS S3 and Redshift, Infrastructure-as-code (IaC)
 
 This project is part of Udacity's Data Engineer Nanodegree program.
 This is a simplified repository for only codes, the data is no available here.
+
+
+## Database Schema
+
+image ![Image of star schema](https:/....)
+
+First we have to make staging tables for the copy of S3 bucket and then create and insert finale tables. I used to Zstandard (ZSTD) encoding because it provides a high compression ratio across diverse datasets. 
