@@ -1,21 +1,22 @@
 ### Data Warehouse project: ETL pipeline and AWS Redshift
 
+
 A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
-In this project, I'll demonstrate how to make a ETL pipeline and prepare JSON files to star schema datababase, that Sparkify's analytics can use for their analysis. 
-Data warehouse is builded with AWS Redshift using Infrastructure-as-code (IaC).
+**Summary**: Building an ETL pipeline that extracts data from S3, stages them in Redshift, and transforms data into a set of dimensional tables for analytics team to continue finding insights in what songs their users are listening to. Finally, we'll be able to test our database and ETL pipeline by running queries given to you by the analytics team from Sparkify and compare your results with their expected results. 
 
-Key components: ETL pipeline, AWS S3 and Redshift, Infrastructure-as-code (IaC)
+In this project, I'll demonstrate how to make an ETL pipeline and prepare JSON files to star schema database, that Sparkify's analytics can use for their analysis. 
+
+The data warehouse is built with AWS Redshift using Infrastructure-as-code (IaC).
+
 
 This project is part of Udacity's Data Engineer Nanodegree program.
-This is a simplified repository for only codes, the data is no available here.
-
 
 ## Database Schema
 
 image ![Image of star schema](https:/....)
 
-First we have to make staging tables for the copy of S3 bucket and then create and insert finale tables. I used to Zstandard (ZSTD) encoding because it provides a high compression ratio across diverse datasets. 
+First, we have to make staging tables for the copy of S3 bucket and then create and insert finale tables. I used to Zstandard (ZSTD) encoding because it provides a high compression ratio across diverse datasets. 
 
 Data model is a star schema: **songplays** is a fact table and dimension tables are **songs** , **artists**, **users** and **time**.
 
@@ -33,7 +34,7 @@ image here
 
 ## Example
 
-Here is an testing query for Sparkify's analytics, that we can see, how it works.
+Here is a testing query for Sparkify's analytics, that we can see, how it works.
 image here
 
 ## Author
