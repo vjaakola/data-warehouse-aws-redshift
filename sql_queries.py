@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS songplays (
     songplay_id     integer encode ZSTD not null    primary key IDENTITY(0,1),
     start_time      timestamp   encode ZSTD     not null    sortkey,
     user_id         varchar     encode ZSTD     not null,
-    level           varchar     encode ZSTD,
-    song_id         varchar     encode ZSTD,
-    artist_id       varchar     encode ZSTD     distkey,
-    session_id      integer     encode ZSTD,
+    level           varchar     encode ZSTD     not null,
+    song_id         varchar     encode ZSTD     not null,
+    artist_id       varchar     encode ZSTD     not null    distkey,
+    session_id      integer     encode ZSTD,    not null
     location        varchar     encode ZSTD,
     user_agent      varchar     encode ZSTD
     
@@ -157,7 +157,7 @@ SELECT DISTINCT TIMESTAMP 'epoch' + e.ts/1000 * interval '1 second' AS start_tim
     e.location,
     e.userAgent as user_agent
 from staging_events e join staging_songs s 
-on e.song = s.title and e.artist = s.artist_name
+on e.song = s.title and e.artist = s.artist_name and e.lenght = s.duration
 where e.page = 'NextSong';
 """)
 
